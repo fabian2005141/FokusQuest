@@ -9,17 +9,24 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Guten Morgen Welt!!!")
+        ZStack {
+            NavigationStack {
+                Color(.white)
+                VStack(spacing: 16) {
+                    NavigationLink("Aktuelle Challenge") {
+                        AktuelleChallenge()
+                    }
+                    NavigationLink("Bereits erledigt") {
+                        BereitsErledigt()
+                    }
+                }
+                .navigationTitle("Productivity Challenge")
+                .padding()
+                }
+    
+            }
         }
-        .padding()
     }
-}
-
-
 
 #Preview {
     ContentView()

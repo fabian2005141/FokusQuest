@@ -7,27 +7,20 @@
 
 import SwiftUI
 
-struct SwiftUIView: View {
+struct AktuelleChallenge: View {
     var body: some View {
-        
         ZStack {
             Color(.black)
                 .edgesIgnoringSafeArea(.all)
+            Text("Das liegt gerade an:")
+                .foregroundStyle(.white)
+                .font(.largeTitle)
+                .offset(y:-200)
             
-        VStack {
-            Color(.black)
             }
         }
-        NavigationView {
-            Text("Das steht heute an:")
-            Color.white
-        }
-
-
-
     }
-}
 
 #Preview {
-    SwiftUIView()
+    AktuelleChallenge()
 }

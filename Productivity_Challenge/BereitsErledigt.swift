@@ -9,9 +9,18 @@ import SwiftUI
 
 struct BereitsErledigt: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color(.black)
+                .edgesIgnoringSafeArea(.all)
+            
+            Text("Hier siehst du, was du bereits geschafft hast:")
+                .foregroundStyle(.white)
+                .font(.largeTitle)
+                .offset(y:-200)
+                }
+            
+        }
     }
-}
 
 #Preview {
     BereitsErledigt()
