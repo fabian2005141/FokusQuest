@@ -14,7 +14,7 @@ struct ContentView: View {
                 Color(.white)
                 VStack(spacing: 16) {
                     NavigationLink("Aktuelle Challenge") {
-                        aktuelleChallenge()
+                        AktuelleChallenge()
                     }
                     .frame(maxHeight: .infinity)
                     .frame(maxWidth: .infinity)
@@ -29,8 +29,8 @@ struct ContentView: View {
                         bereitsErledigt()
                     } .frame(maxHeight: .infinity)
                     .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .border(Color.blue, width: 3)
+                    .background(Color.black)
+                    .border(Color.black, width: 3)
                     .foregroundColor(.white)
                     .font(.title)
                 }
