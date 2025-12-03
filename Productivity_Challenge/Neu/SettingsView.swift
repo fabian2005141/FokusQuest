@@ -10,6 +10,7 @@ struct SettingsView: View {
     @AppStorage("completedChallengeIDs") private var completedChallengeIDsRaw: String = ""
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding: Bool = true
     @State private var showResetAlert = false
+    @State private var appinfo: Bool = false
 
     var body: some View {
         ZStack {
@@ -44,6 +45,20 @@ struct SettingsView: View {
                             textColor: .black
                         )
                     }
+                    
+                    // MARK: - Über Uns
+                    Text("Über uns")
+                        .font(.headline)
+
+                    Button(action: { appinfo = true }) {
+                        SettingsButtonLabel(
+                            text: "App Infos",
+                            color: Color.orange,
+                            textColor: .black
+                        ).sheet(isPresented: $appinfo){
+                            UeberUnsSheet(isPresented: $appinfo)
+                        }
+                    }
                 }
                 .padding()
             }
@@ -76,5 +91,38 @@ struct SettingsButtonLabel: View {
             .background(color)
             .cornerRadius(12)
             .shadow(radius: 0)
+    }
+}
+
+
+#Preview{
+    SettingsView()
+}
+
+
+//MARK: Über uns sheet
+
+private struct UeberUnsSheet: View {
+    @Binding var isPresented: Bool
+    
+    var body: some View {
+            
+        ZStack{
+            VStack{
+                
+                HStack{
+                    
+                    Button("Exit"){
+                        self.isPresented.toggle()
+                    }.padding(20)
+                    Spacer()
+                }
+                Spacer()
+            }
+            Text("Über uns Text ... / Über app")
+        }
+        
+        
+        
     }
 }
