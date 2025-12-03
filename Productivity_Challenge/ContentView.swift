@@ -4,45 +4,23 @@
 //
 //  Created by Fabian Lackner on 01.12.25.
 //
-
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        ZStack {
-            NavigationStack {
-                Color(.white)
-                VStack(spacing: 16) {
-                    NavigationLink("Aktuelle Challenge") {
-                        AktuelleChallenge()
-                    }
-                    .frame(maxHeight: .infinity)
-                    .frame(maxWidth: .infinity)
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding: Bool = false
 
-                    .background(Color.blue)
-                    .border(Color.blue, width: 3)
-                    .foregroundColor(.white)
-                    .font(.title)
-                    Spacer()
-                    
-                    NavigationLink("Bereits erledigt") {
-                        bereitsErledigt()
-                    } .frame(maxHeight: .infinity)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.black)
-                    .border(Color.black, width: 3)
-                    .foregroundColor(.white)
-                    .font(.title)
+    var body: some View {
+        NavigationStack {
+            if !hasSeenOnboarding {
+                OnboardingView {
+                    hasSeenOnboarding = true
                 }
-                Spacer()
-                .navigationTitle("Productivity Challenge")
-                .padding()
-                
-                }
-    
+            } else {
+                MainMenuView()
             }
         }
     }
+}
 
 #Preview {
     ContentView()

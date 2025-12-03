@@ -17,8 +17,9 @@ struct bereitsErledigt: View {
                 .foregroundStyle(.white)
                 .font(.largeTitle)
                 .offset(y:-200)
-                }
             
+                }
+       
         }
     }
 
