@@ -28,7 +28,7 @@ Wenn du alle Challenges abgeschlossen hast, wirst du dich (hoffentlich) etwas le
 
 Es ist dir überlassen, wie viel du heute machst. Denk daran: Morgen ist auch noch ein Tag – überfordere dich nicht.
 
-Small steps - big results.
+Small steps -> big results.
 """)
                 .font(.body)
                 .foregroundColor(.secondary)
