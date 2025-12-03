@@ -23,6 +23,7 @@ struct SettingsView: View {
                     // MARK: - Fortschritt
                     Text("Fortschritt")
                         .font(.headline)
+                        .foregroundColor(.schrift)
 
                     Button(action: { showResetAlert = true }) {
                         SettingsButtonLabel(
@@ -35,6 +36,7 @@ struct SettingsView: View {
                     // MARK: - Onboarding
                     Text("Onboarding")
                         .font(.headline)
+                        .foregroundColor(.schrift)
 
                     Button(action: {
                         hasSeenOnboarding = false
@@ -49,21 +51,25 @@ struct SettingsView: View {
                     // MARK: - Über Uns
                     Text("Über uns")
                         .font(.headline)
+                        .foregroundColor(.schrift)
 
                     Button(action: { appinfo = true }) {
                         SettingsButtonLabel(
                             text: "App Infos",
                             color: Color.orange,
                             textColor: .black
-                        ).sheet(isPresented: $appinfo){
-                            UeberUnsSheet(isPresented: $appinfo)
-                        }
+                        )
+                    }
+                    .sheet(isPresented: $appinfo) {
+                        UeberUnsSheet(isPresented: $appinfo)
+                            .presentationBackground(Color("AppBackground"))
                     }
                 }
                 .padding()
             }
         }
         .navigationTitle("Einstellungen")
+        
         .alert("Fortschritt wirklich zurücksetzen?",
                isPresented: $showResetAlert
         ) {
@@ -95,9 +101,7 @@ struct SettingsButtonLabel: View {
 }
 
 
-#Preview{
-    SettingsView()
-}
+
 
 
 //MARK: Über uns sheet
@@ -112,17 +116,35 @@ private struct UeberUnsSheet: View {
                 
                 HStack{
                     
-                    Button("Exit"){
+                    Button(role: .cancel) {
                         self.isPresented.toggle()
-                    }.padding(20)
+                    } label: {
+                        Image(systemName: "xmark")
+                            .foregroundStyle(Color.black)
+                            .padding(8)
+                            .background(
+                                Circle().fill(Color.white.opacity(0.001))
+                            )
+                            .bold()
+                    }
+                    .padding(20)
+                        
+                       
                     Spacer()
                 }
                 Spacer()
             }
-            Text("Über uns Text ... / Über app")
+            VStack {
+                Text("Über uns Text ... / Über app")
+                .foregroundColor(.schrift)
+                
+                
+            }
+           
         }
         
         
         
     }
 }
+

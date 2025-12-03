@@ -16,9 +16,10 @@ struct MainMenuView: View {
                 Text("Productivity Challenge")
                     .font(.largeTitle.bold())
                     .multilineTextAlignment(.center)
+                    .foregroundColor(.schrift)
                 
                 Text("Wähle aus, womit du weitermachen möchtest.")
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.schrift2)
                     .multilineTextAlignment(.center)
                 
                 NavigationLink {
@@ -48,10 +49,10 @@ struct MainMenuView: View {
     private func menuButtonLabel(text: String, systemImage: String) -> some View {
         HStack {
             Image(systemName: systemImage)
-                .foregroundColor(.black)
+                .foregroundColor(.schrift)
             Text(text)
                 .font(.headline)
-                .foregroundColor(.black)
+                .foregroundColor(.schrift)
         }
         .frame(maxWidth: .infinity)
         .padding()

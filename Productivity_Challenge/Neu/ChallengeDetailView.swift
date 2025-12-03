@@ -14,19 +14,22 @@ struct ChallengeDetailView: View {
         ZStack {
             Color("AppBackground")
                 .ignoresSafeArea()
+                
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     Text(challenge.title)
                         .font(.title2.bold())
+                        .foregroundColor(.schrift)
 
                     Text(challenge.area)
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(.schrift2)
 
                     Divider()
 
                     Text(challenge.description)
                         .font(.body)
+                        .foregroundColor(.schrift2)
 
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Schritte")
@@ -35,8 +38,10 @@ struct ChallengeDetailView: View {
                             HStack(alignment: .top, spacing: 8) {
                                 Text("\(index + 1).")
                                     .font(.subheadline.bold())
+                                    .foregroundColor(.schrift2)
                                 Text(step)
                                     .font(.body)
+                                    .foregroundColor(.schrift2)
                             }
                         }
                     }
@@ -45,12 +50,14 @@ struct ChallengeDetailView: View {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Tipps")
                                 .font(.headline)
+                                .foregroundColor(.schrift)
                             ForEach(challenge.tips, id: \.self) { tip in
                                 HStack(alignment: .top, spacing: 8) {
                                     Image(systemName: "lightbulb")
                                     Text(tip)
                                 }
                                 .font(.body)
+                                .foregroundColor(.schrift2)
                             }
                         }
                     }
@@ -62,5 +69,6 @@ struct ChallengeDetailView: View {
         }
         .navigationTitle(challenge.title)
         .navigationBarTitleDisplayMode(.inline)
+        .foregroundColor(.schrift)
     }
 }

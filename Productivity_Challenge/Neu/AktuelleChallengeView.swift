@@ -27,11 +27,13 @@ struct AktuelleChallengeView: View {
     var body: some View {
         ZStack {
             Color("AppBackground")
+                
                 .ignoresSafeArea()
             Group {
                 if let challenge = nextChallenge {
                     VStack(spacing: 16) {
                         ChallengeDetailView(challenge: challenge)
+                           
                         
                         Button(action: { markCompleted(challenge) }) {
                             Text("Challenge erledigt")
@@ -39,7 +41,7 @@ struct AktuelleChallengeView: View {
                                 .frame(maxWidth: .infinity)
                                 .padding()
                                 .background(Color.accentColor)
-                                .foregroundColor(.black)
+                                .foregroundColor(.schrift)
                                 .cornerRadius(14)
                         }
                         .padding(.horizontal)
@@ -48,14 +50,16 @@ struct AktuelleChallengeView: View {
                     VStack(spacing: 16) {
                         Text("Alle Challenges erledigt 🎉")
                             .font(.title2.bold())
+                            .foregroundColor(.schrift)
                         Text("Du hast das komplette Programm abgeschlossen. Wenn du möchtest, kannst du in den Einstellungen alles zurücksetzen und von vorne beginnen.")
                             .multilineTextAlignment(.center)
-                            .foregroundColor(.secondary)
+                            .foregroundColor(.schrift2)
                     }
                     .padding()
                 }
             }
             .navigationTitle("Aktuelle Challenge")
+            
         }
     }
 }

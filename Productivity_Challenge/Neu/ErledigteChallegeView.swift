@@ -28,8 +28,10 @@ struct ErledigteChallengesView: View {
                     VStack(spacing: 16) {
                         Text("Noch keine Challenges erledigt")
                             .font(.title3.bold())
+                            .foregroundColor(.schrift)
                         Text("Sobald du deine erste Challenge abschließt, erscheint sie hier.")
                             .multilineTextAlignment(.center)
+                            .foregroundColor(.schrift2)
                            
                     }
                     .padding()
@@ -38,8 +40,9 @@ struct ErledigteChallengesView: View {
                         NavigationLink(destination: ChallengeDetailView(challenge: challenge)){
                             HStack {
                                 Image(systemName: "checkmark.circle.fill")
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.schrift)
                                 Text(challenge.title)
+                                    .foregroundColor(.schrift)
                             }
                         }
                         .listRowBackground(Color("ButtonBackground"))
@@ -49,6 +52,7 @@ struct ErledigteChallengesView: View {
                 }
             }
             .navigationTitle("Erledigte Challenges")
+            .foregroundColor(.schrift)
         }
     }
 }

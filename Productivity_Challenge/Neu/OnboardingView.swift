@@ -20,6 +20,7 @@ struct OnboardingView: View {
                 
                 Text("Willkommen zur Productivity Challenge")
                     .font(.title.bold())
+                    .foregroundColor(.schrift)
                 
                 Text("""
 Diese App ist dafür gedacht, dein innerliches Chaos zu ordnen, indem du dein äußerliches Chaos ordnest.
@@ -31,7 +32,7 @@ Es ist dir überlassen, wie viel du heute machst. Denk daran: Morgen ist auch no
 Small steps -> big results.
 """)
                 .font(.body)
-                .foregroundColor(.secondary)
+                .foregroundColor(.schrift2)
                 
                 Spacer()
                 
@@ -41,7 +42,7 @@ Small steps -> big results.
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(Color.accentColor)
-                        .foregroundColor(.black)
+                        .foregroundColor(.schrift)
                         .cornerRadius(14)
                 }
             }

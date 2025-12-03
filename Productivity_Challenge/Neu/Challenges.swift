@@ -148,6 +148,7 @@ let allChallenges: [ChallengeModel] = [
 struct Challenges: View {
     var body: some View {
         Text("Challenges View")
+            
     }
     }
 
