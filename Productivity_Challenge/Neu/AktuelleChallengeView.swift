@@ -24,6 +24,8 @@ struct AktuelleChallengeView: View {
         allChallenges.first { !completedIDs.contains($0.id) }
     }
     
+    @State private var feedbackToggle = false
+    
     var body: some View {
         ZStack {
             Color("AppBackground")
@@ -35,7 +37,10 @@ struct AktuelleChallengeView: View {
                         ChallengeDetailView(challenge: challenge)
                            
                         
-                        Button(action: { markCompleted(challenge) }) {
+                        Button(action: {
+                            feedbackToggle.toggle()
+                            markCompleted(challenge)
+                        }) {
                             Text("Challenge erledigt")
                                 .font(.headline)
                                 .frame(maxWidth: .infinity)
@@ -44,6 +49,7 @@ struct AktuelleChallengeView: View {
                                 .foregroundColor(.schrift)
                                 .cornerRadius(14)
                         }
+                        .sensoryFeedback(.impact(flexibility: .rigid, intensity: 2.0), trigger: feedbackToggle)
                         .padding(.horizontal)
                     }
                 } else {
@@ -63,3 +69,4 @@ struct AktuelleChallengeView: View {
         }
     }
 }
+
