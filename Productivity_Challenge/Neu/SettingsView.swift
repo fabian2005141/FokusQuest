@@ -108,14 +108,14 @@ struct SettingsButtonLabel: View {
 
 private struct UeberUnsSheet: View {
     @Binding var isPresented: Bool
-    
+    @Environment(\.openURL) private var openURL
+
     var body: some View {
-            
-        ZStack{
-            VStack{
-                
-                HStack{
-                    
+        ZStack {
+            Color("AppBackground").ignoresSafeArea()
+
+            VStack {
+                HStack {
                     Button(role: .cancel) {
                         self.isPresented.toggle()
                     } label: {
@@ -128,23 +128,60 @@ private struct UeberUnsSheet: View {
                             .bold()
                     }
                     .padding(20)
-                        
-                       
+
                     Spacer()
                 }
+
                 Spacer()
             }
-            VStack {
-                Text("Über uns Text ... / Über app")
-                .foregroundColor(.schrift)
-                
-                
+
+            VStack(spacing: 16) {
+                Text("Über diese App")
+                    .font(.title2)
+                    .foregroundStyle(.schrift)
+
+                Text("Wir sind Richard B. und Fabian L. und dies ist unser erstes iOS Projekt, das wir im Rahmen des Hackathon3.0 von Kevin Chromik innerhalb von sieben Tagen entwickelt haben. Wir würden  uns über dein Feedback sehr freuen.")
+                    .foregroundStyle(.schrift)
+
+                Button {
+                    openFeedbackMail()
+                } label: {
+                    Text("Feedback senden")
+                        .foregroundColor(.black)
+                        .font(.body)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.orange)
+                        .cornerRadius(12)
+                }
+                .padding(.horizontal)
             }
-           
+            .padding()
         }
-        
-        
-        
+    }
+
+    // MARK: - Helpers
+    private func openFeedbackMail() {
+        let to = "feedback.lacknerbruese@gmail.com"
+        let subject = "Feedback zu FokusQuest"
+        let body = """
+        Hallo,
+
+        ich habe Feedback zu eurer App:
+
+        • Was mir gefällt:
+        • Was verbessert werden könnte:
+
+        Vielen Dank!
+        """
+
+        let encodedSubject = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let encodedBody = body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+
+        let urlString = "mailto:\(to)?subject=\(encodedSubject)&body=\(encodedBody)"
+
+        if let url = URL(string: urlString) {
+            openURL(url)
+        }
     }
 }
-
