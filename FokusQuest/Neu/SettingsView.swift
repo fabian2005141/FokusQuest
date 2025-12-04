@@ -20,33 +20,21 @@ struct SettingsView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
                     
-                    // MARK: - Fortschritt
-                    Text("Fortschritt")
+                    // MARK: - App Einstelluingen
+                    Text("App Einstellungen")
                         .font(.headline)
                         .foregroundColor(.schrift)
 
-                    Button(action: { showResetAlert = true }) {
+                    Button(action: {showResetAlert = true}) {
+                            
                         SettingsButtonLabel(
-                            text: "Fortschritt zurücksetzen",
-                            color: Color.orange,
+                            text: "App zurücksetzen",
+                            color: .buttonBackground,
                             textColor: .black
                         )
                     }
 
-                    // MARK: - Onboarding
-                    Text("Onboarding")
-                        .font(.headline)
-                        .foregroundColor(.schrift)
-
-                    Button(action: {
-                        hasSeenOnboarding = false
-                    }) {
-                        SettingsButtonLabel(
-                            text: "...beim nächsten Start wieder anzeigen",
-                            color: Color.orange,
-                            textColor: .black
-                        )
-                    }
+                    
                     
                     // MARK: - Über Uns
                     Text("Über uns")
@@ -56,13 +44,13 @@ struct SettingsView: View {
                     Button(action: { appinfo = true }) {
                         SettingsButtonLabel(
                             text: "App Infos",
-                            color: Color.orange,
+                            color: .buttonBackground,
                             textColor: .black
                         )
                     }
                     .sheet(isPresented: $appinfo) {
                         UeberUnsSheet(isPresented: $appinfo)
-                            .presentationBackground(Color("AppBackground"))
+                            .presentationBackground(.white)
                     }
                 }
                 .padding()
@@ -70,15 +58,16 @@ struct SettingsView: View {
         }
         .navigationTitle("Einstellungen")
         
-        .alert("Fortschritt wirklich zurücksetzen?",
+        .alert("Möchtest du die App wirklich zurücksetzen ?",
                isPresented: $showResetAlert
         ) {
             Button("Abbrechen", role: .cancel) { }
             Button("Zurücksetzen", role: .destructive) {
                 completedChallengeIDsRaw = ""
+                hasSeenOnboarding = false
             }
         } message: {
-            Text("Alle Challenges werden wieder als „offen“ markiert.")
+            Text("Alle vortschritte gehen dabei verlohren und die Challenges werden zurückgesetzt")
         }
     }
 }
@@ -112,7 +101,7 @@ private struct UeberUnsSheet: View {
 
     var body: some View {
         ZStack {
-            Color("AppBackground").ignoresSafeArea()
+            Color(.sheetcolor).ignoresSafeArea()
 
             VStack {
                 HStack {
@@ -120,7 +109,7 @@ private struct UeberUnsSheet: View {
                         self.isPresented.toggle()
                     } label: {
                         Image(systemName: "xmark")
-                            .foregroundStyle(Color.black)
+                            .foregroundStyle(.buttonBackground)
                             .padding(8)
                             .background(
                                 Circle().fill(Color.white.opacity(0.001))
@@ -139,10 +128,10 @@ private struct UeberUnsSheet: View {
                 Text("Über diese App")
                     .font(.title2)
                     .foregroundStyle(.schrift)
-
+                Spacer()
                 Text("Wir sind Richard B. und Fabian L. und dies ist unser erstes iOS Projekt, das wir im Rahmen des Hackathon3.0 von Kevin Chromik innerhalb von sieben Tagen entwickelt haben. Wir würden  uns über dein Feedback sehr freuen.")
                     .foregroundStyle(.schrift)
-
+                Spacer()
                 Button {
                     openFeedbackMail()
                 } label: {
@@ -151,7 +140,7 @@ private struct UeberUnsSheet: View {
                         .font(.body)
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(Color.orange)
+                        .background(.buttonBackground)
                         .cornerRadius(12)
                 }
                 .padding(.horizontal)

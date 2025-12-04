@@ -41,8 +41,8 @@ Small steps -> big results.
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color.accentColor)
-                        .foregroundColor(.schrift)
+                        .background(.buttonBackground)
+                        .foregroundColor(.black)
                         .cornerRadius(14)
                 }
             }

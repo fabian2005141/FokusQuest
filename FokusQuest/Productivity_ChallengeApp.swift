@@ -10,7 +10,7 @@ import SwiftUI
 struct Productivity_ChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()   // <-- WICHTIG: hier muss deine Start-View rein
+            ContentView()
         }
     }
 }

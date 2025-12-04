@@ -142,7 +142,29 @@ let allChallenges: [ChallengeModel] = [
                 "Sei eher zu vorsichtig als zu optimistisch – lieber weniger vornehmen und wirklich schaffen.",
                 "Plane auch Zeit für dich ein: Erholung ist Teil von Produktivität."
             ]
-        )
+        ),
+    ChallengeModel(
+      id: 8,
+      title: "Regal saubermachen",
+      area: "Ordnung & Zuhause",
+      description: "Bringe ein Regal deiner Wahl in Ordnung – sauber, sortiert und übersichtlich.",
+      steps: [
+        "Wähle ein Regal (z. B. im Zimmer, Bad oder Küche).",
+        "Nimm alles heraus und lege die Sachen geordnet zur Seite.",
+        "Wische die Regalböden feucht oder mit Staubtuch sauber.",
+        "Entscheide: Was kommt zurück? Was kann weg oder an einen besseren Platz?",
+        "Sortiere die Dinge in Kategorien (z. B. Bücher, Deko, Elektronik).",
+        "Stelle sie ordentlich und mit System wieder ein.",
+        "Mache ein Vorher–Nachher-Foto für extra Motivation!"
+      ],
+      tips: [
+        "Falls es zu viel ist: nur ein einzelnes Fach des Regals erledigen.",
+        "Nutze die Gelegenheit, direkt ein paar unnötige Dinge auszusortieren.",
+        "Schöne Anordnung hilft: schwere Sachen unten, leichte oben."
+      ]
+    ),
+
+    
     ]
 
 struct Challenges: View {

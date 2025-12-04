@@ -45,8 +45,8 @@ struct AktuelleChallengeView: View {
                                 .font(.headline)
                                 .frame(maxWidth: .infinity)
                                 .padding()
-                                .background(Color.accentColor)
-                                .foregroundColor(.schrift)
+                                .background(.buttonBackground)
+                                .foregroundColor(.black)
                                 .cornerRadius(14)
                         }
                         .sensoryFeedback(.impact(flexibility: .rigid, intensity: 2.0), trigger: feedbackToggle)

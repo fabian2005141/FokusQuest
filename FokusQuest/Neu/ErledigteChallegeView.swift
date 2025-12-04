@@ -40,15 +40,15 @@ struct ErledigteChallengesView: View {
                         NavigationLink(destination: ChallengeDetailView(challenge: challenge)){
                             HStack {
                                 Image(systemName: "checkmark.circle.fill")
-                                    .foregroundColor(.schrift)
+                                    .foregroundColor(.black)
                                 Text(challenge.title)
-                                    .foregroundColor(.schrift)
+                                    .foregroundColor(.black)
                             }
                         }
-                        .listRowBackground(Color("ButtonBackground"))
+                        .listRowBackground(Color.buttonBackground)
                     }
                     .scrollContentBackground(.hidden)
-                    .background(Color("AppBackground"))
+                    .background(Color.appBackground)
                 }
             }
             .navigationTitle("Erledigte Challenges")

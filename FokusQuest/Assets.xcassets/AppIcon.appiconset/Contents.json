@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "Standort-Pin mit Schwertsymbol.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -12,6 +13,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "Grünes GPS-Symbol mit Schwert.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
