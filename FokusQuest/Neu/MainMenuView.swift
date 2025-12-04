@@ -13,12 +13,12 @@ struct MainMenuView: View {
             Color("AppBackground")
                 .ignoresSafeArea()
             VStack(spacing: 24) {
-                Text("Productivity Challenge")
+                Text("FokusQuest")
                     .font(.largeTitle.bold())
                     .multilineTextAlignment(.center)
                     .foregroundColor(.schrift)
                 
-                Text("Wähle aus, womit du weitermachen möchtest.")
+                Text("Hauptmenü")
                     .foregroundColor(.schrift2)
                     .multilineTextAlignment(.center)
                 

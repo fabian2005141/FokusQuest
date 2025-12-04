@@ -18,7 +18,7 @@ struct OnboardingView: View {
             VStack(alignment: .leading, spacing: 24) {
                 Spacer()
                 
-                Text("Willkommen zur Productivity Challenge")
+                Text("Willkommen bei FokusQuest")
                     .font(.title.bold())
                     .foregroundColor(.schrift)
                 
