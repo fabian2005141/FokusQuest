@@ -17,16 +17,18 @@ struct MainMenuView: View {
                     .font(.largeTitle.bold())
                     .multilineTextAlignment(.center)
                     .foregroundColor(.schrift)
+                    .padding(40)
                 
                 /*Text("Hauptmenü")
                     .foregroundColor(.schrift2)
                     .multilineTextAlignment(.center)
                 */
+                //Spacer()
                 NavigationLink {
                     AktuelleChallengeView()
                 } label: {
                     menuButtonLabel(text: "Aktuelle Quest", systemImage: "flame.fill")
-                }
+                }.padding(.top, 100)
                 
                 NavigationLink {
                     ErledigteChallengesView()
@@ -60,4 +62,8 @@ struct MainMenuView: View {
         .background(.buttonBackground)
         .cornerRadius(14)
     }
+}
+
+#Preview {
+    MainMenuView()
 }

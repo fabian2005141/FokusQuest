@@ -129,9 +129,13 @@ private struct UeberUnsSheet: View {
                     .font(.title2)
                     .foregroundStyle(.schrift)
                 Spacer()
+                
                 Text("Wir sind Richard B. und Fabian L. und dies ist unser erstes iOS Projekt, das wir im Rahmen des Hackathon3.0 von Kevin Chromik innerhalb von sieben Tagen entwickelt haben. Wir würden uns über dein Feedback sehr freuen.")
                     .foregroundStyle(.schrift)
                 Spacer()
+                
+                
+                
                 Button {
                     openFeedbackMail()
                 } label: {
@@ -149,7 +153,7 @@ private struct UeberUnsSheet: View {
         }
     }
 
-    // MARK: - Helpers
+    // MARK: - Email-Vorlage (Feedback senden)
     private func openFeedbackMail() {
         let to = "feedback.lacknerbruese@gmail.com"
         let subject = "Feedback zu FokusQuest"
@@ -173,4 +177,9 @@ private struct UeberUnsSheet: View {
             openURL(url)
         }
     }
+}
+
+
+#Preview{
+    SettingsView()
 }

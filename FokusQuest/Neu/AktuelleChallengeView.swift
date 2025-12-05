@@ -155,3 +155,7 @@ struct AktuelleChallengeView: View {
         }
     }
 }
+
+#Preview {
+    AktuelleChallengeView()
+}

@@ -446,6 +446,3 @@ struct Challenges: View {
     }
 }
 
-#Preview {
-    Challenges()
-}
