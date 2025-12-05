@@ -47,7 +47,8 @@ struct AktuelleChallengeView: View {
                                 .font(.title2.bold())
                                 .multilineTextAlignment(.center)
                                 .foregroundColor(.schrift)
-
+                                .padding(.top, 100)
+                            
                             Text("""
                             Hey, super – du hast alle Quests abgeschlossen!
 
@@ -58,21 +59,22 @@ struct AktuelleChallengeView: View {
                                 .multilineTextAlignment(.leading)
                                 .foregroundColor(.schrift2)
                                 .font(.body)
+                                .padding(.top, 100)
                         }
                         .padding()
-                    }
+                    }/*
                     .onAppear {
                         if !didShowFinalCelebration {
                             startFinalCelebration()
                         }
-                    }
+                    }*/
 
                 } else if let challenge = nextChallenge {
                     // MARK: – Es gibt noch eine Quest
                     ScrollView {
                         ChallengeDetailView(challenge: challenge)
                             .padding(.bottom, 24)
-
+                        /*
                         Button {
                             feedbackToggle.toggle()
                             handleChallengeCompleted(challenge)
@@ -90,8 +92,26 @@ struct AktuelleChallengeView: View {
                         .sensoryFeedback(
                             .impact(flexibility: .rigid, intensity: 2.0),
                             trigger: feedbackToggle
-                        )
+                        )*/
                     }
+                    Button {
+                        feedbackToggle.toggle()
+                        handleChallengeCompleted(challenge)
+                    } label: {
+                        Text("Quest erledigt")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color("ButtonBackground"))
+                            .foregroundColor(.black)
+                            .cornerRadius(14)
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 8)
+                    .sensoryFeedback(
+                        .impact(flexibility: .rigid, intensity: 2.0),
+                        trigger: feedbackToggle
+                    )
                 } else {
                     // Sicherheits-Fallback, falls etwas schiefgeht
                     Text("Keine Quests gefunden. Prüfe deine Challenges-Liste.")
@@ -112,7 +132,7 @@ struct AktuelleChallengeView: View {
         .navigationTitle("Aktuelle Quest")
     }
 
-    // MARK: - Logik
+
 
     private func markCompleted(_ challenge: ChallengeModel) {
         var ids = completedIDs
