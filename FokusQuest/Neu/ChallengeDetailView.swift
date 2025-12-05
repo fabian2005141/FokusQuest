@@ -61,7 +61,21 @@ struct ChallengeDetailView: View {
                             }
                         }
                     }
+                    if !challenge.reason.isEmpty {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Warum das hilft")
+                                .font(.headline)
+                                .foregroundColor(.schrift)
 
+                            HStack(alignment: .top, spacing: 8) {
+                                Image(systemName: "brain.head.profile")
+                                Text(challenge.reason)
+                            }
+                            .font(.body)
+                            .foregroundColor(.schrift2)
+                        }
+                        .padding(.top)
+                    }
                     Spacer(minLength: 16)
                 }
                 .padding()

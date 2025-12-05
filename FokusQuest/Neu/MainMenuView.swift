@@ -25,13 +25,13 @@ struct MainMenuView: View {
                 NavigationLink {
                     AktuelleChallengeView()
                 } label: {
-                    menuButtonLabel(text: "Aktuelle Challenge", systemImage: "flame.fill")
+                    menuButtonLabel(text: "Aktuelle Quest", systemImage: "flame.fill")
                 }
                 
                 NavigationLink {
                     ErledigteChallengesView()
                 } label: {
-                    menuButtonLabel(text: "Bereits erledigte Challenges", systemImage: "checkmark.circle.fill")
+                    menuButtonLabel(text: "Bereits erledigte Quests", systemImage: "checkmark.circle.fill")
                 }
                 
                 NavigationLink {

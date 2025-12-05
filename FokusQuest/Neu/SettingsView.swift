@@ -67,7 +67,7 @@ struct SettingsView: View {
                 hasSeenOnboarding = false
             }
         } message: {
-            Text("Alle vortschritte gehen dabei verlohren und die Challenges werden zurückgesetzt")
+            Text("Alle Fortschritte gehen dabei verloren und die Quests werden zurückgesetzt")
         }
     }
 }
@@ -129,7 +129,7 @@ private struct UeberUnsSheet: View {
                     .font(.title2)
                     .foregroundStyle(.schrift)
                 Spacer()
-                Text("Wir sind Richard B. und Fabian L. und dies ist unser erstes iOS Projekt, das wir im Rahmen des Hackathon3.0 von Kevin Chromik innerhalb von sieben Tagen entwickelt haben. Wir würden  uns über dein Feedback sehr freuen.")
+                Text("Wir sind Richard B. und Fabian L. und dies ist unser erstes iOS Projekt, das wir im Rahmen des Hackathon3.0 von Kevin Chromik innerhalb von sieben Tagen entwickelt haben. Wir würden uns über dein Feedback sehr freuen.")
                     .foregroundStyle(.schrift)
                 Spacer()
                 Button {

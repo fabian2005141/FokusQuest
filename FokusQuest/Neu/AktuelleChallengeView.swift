@@ -9,64 +9,149 @@ import SwiftUI
 
 struct AktuelleChallengeView: View {
     @AppStorage("completedChallengeIDs") private var completedChallengeIDsRaw: String = ""
-    
+
+    @State private var showKonfetti = false
+    @State private var feedbackToggle = false
+    @State private var didShowFinalCelebration = false
+
+    // MARK: - Fortschritt
+
     private var completedIDs: Set<Int> {
-        decodeCompletedIDs(from: completedChallengeIDsRaw)
+        let ids = completedChallengeIDsRaw
+            .split(separator: ",")
+            .compactMap { Int($0) }
+        return Set(ids)
     }
-    
-    private func markCompleted(_ challenge: ChallengeModel) {
-        var ids = completedIDs
-        ids.insert(challenge.id)
-        completedChallengeIDsRaw = encodeCompletedIDs(ids)
-    }
-    
+
+    /// Nächste offene Challenge (oder nil, wenn alle erledigt)
     private var nextChallenge: ChallengeModel? {
         allChallenges.first { !completedIDs.contains($0.id) }
     }
-    
-    @State private var feedbackToggle = false
-    
+
+    /// Alle Quests erledigt, wenn jede Challenge-ID in `completedIDs` steckt
+    private var allCompleted: Bool {
+        !allChallenges.isEmpty && allChallenges.allSatisfy { completedIDs.contains($0.id) }
+    }
+
     var body: some View {
         ZStack {
             Color("AppBackground")
-                
                 .ignoresSafeArea()
-            Group {
-                if let challenge = nextChallenge {
-                    VStack(spacing: 16) {
+
+            VStack {
+                if allCompleted {
+                    // MARK: – Alle Quests erledigt
+                    ScrollView {
+                        VStack(spacing: 16) {
+                            Text("Alle Quests erledigt! 🎉")
+                                .font(.title2.bold())
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(.schrift)
+
+                            Text("""
+                            Hey, super – du hast alle Quests abgeschlossen!
+
+                            Wenn du magst, kannst du in den Einstellungen deinen Fortschritt zurücksetzen und von vorne beginnen.
+
+                            Denk daran: Ordnung im Außen hilft deinem Inneren, ruhiger und klarer zu werden. Du darfst stolz auf dich sein.
+                            """)
+                                .multilineTextAlignment(.leading)
+                                .foregroundColor(.schrift2)
+                                .font(.body)
+                        }
+                        .padding()
+                    }
+                    .onAppear {
+                        if !didShowFinalCelebration {
+                            startFinalCelebration()
+                        }
+                    }
+
+                } else if let challenge = nextChallenge {
+                    // MARK: – Es gibt noch eine Quest
+                    ScrollView {
                         ChallengeDetailView(challenge: challenge)
-                           
-                        
-                        Button(action: {
+                            .padding(.bottom, 24)
+
+                        Button {
                             feedbackToggle.toggle()
-                            markCompleted(challenge)
-                        }) {
-                            Text("Challenge erledigt")
+                            handleChallengeCompleted(challenge)
+                        } label: {
+                            Text("Quest erledigt")
                                 .font(.headline)
                                 .frame(maxWidth: .infinity)
                                 .padding()
-                                .background(.buttonBackground)
+                                .background(Color("ButtonBackground"))
                                 .foregroundColor(.black)
                                 .cornerRadius(14)
                         }
-                        .sensoryFeedback(.impact(flexibility: .rigid, intensity: 2.0), trigger: feedbackToggle)
                         .padding(.horizontal)
+                        .padding(.bottom, 8)
+                        .sensoryFeedback(
+                            .impact(flexibility: .rigid, intensity: 2.0),
+                            trigger: feedbackToggle
+                        )
                     }
                 } else {
-                    VStack(spacing: 16) {
-                        Text("Alle Challenges erledigt 🎉")
-                            .font(.title2.bold())
-                            .foregroundColor(.schrift)
-                        Text("Du hast das komplette Programm abgeschlossen. Wenn du möchtest, kannst du in den Einstellungen alles zurücksetzen und von vorne beginnen.")
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.schrift2)
-                    }
-                    .padding()
+                    // Sicherheits-Fallback, falls etwas schiefgeht
+                    Text("Keine Quests gefunden. Prüfe deine Challenges-Liste.")
+                        .padding()
+                        .foregroundColor(.schrift2)
                 }
             }
-            .navigationTitle("Aktuelle Challenge")
-            
+
+            // Konfetti-Overlay für normale und finale Celebration
+            if showKonfetti {
+                KonfettiView(style: allCompleted ? .final : .normal)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea()
+                    .transition(.opacity)
+                    .allowsHitTesting(false)
+            }
+        }
+        .navigationTitle("Aktuelle Quest")
+    }
+
+    // MARK: - Logik
+
+    private func markCompleted(_ challenge: ChallengeModel) {
+        var ids = completedIDs
+        ids.insert(challenge.id)
+        completedChallengeIDsRaw = ids
+            .sorted()
+            .map(String.init)
+            .joined(separator: ",")
+    }
+
+    private func handleChallengeCompleted(_ challenge: ChallengeModel) {
+        markCompleted(challenge)
+
+        // 🔥 Kräftiger, „snappiger“ Start
+        withAnimation(.spring(response: 0.3, dampingFraction: 0.5)) {
+            showKonfetti = true
+        }
+
+        // etwas längere Sichtbarkeit & smoother Fade
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation(.easeOut(duration: 1.0)) {
+                showKonfetti = false
+            }
+        }
+    }
+
+    private func startFinalCelebration() {
+        didShowFinalCelebration = true
+
+        // 🎉 etwas „heroischer“ Start
+        withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+            showKonfetti = true
+        }
+
+        // 🔟 10 Sekunden Celebration
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+            withAnimation(.easeOut(duration: 2.0)) {
+                showKonfetti = false
+            }
         }
     }
 }
-
