@@ -40,15 +40,17 @@ struct AktuelleChallengeView: View {
 
             VStack {
                 if allCompleted {
-                    // MARK: – Alle Quests erledigt
-                    ScrollView {
-                        VStack(spacing: 16) {
+                    // MARK: – Alle Quests erledigt (glasiger Kasten mittig)
+                    VStack {
+                        Spacer()
+
+                        VStack(alignment: .leading, spacing: 16) {
                             Text("Alle Quests erledigt! 🎉")
                                 .font(.title2.bold())
                                 .multilineTextAlignment(.center)
                                 .foregroundColor(.schrift)
-                                .padding(.top, 100)
-                            
+                                .padding(.bottom, 20)
+
                             Text("""
                             Hey, super – du hast alle Quests abgeschlossen!
 
@@ -59,40 +61,34 @@ struct AktuelleChallengeView: View {
                                 .multilineTextAlignment(.leading)
                                 .foregroundColor(.schrift2)
                                 .font(.body)
-                                .padding(.top, 100)
                         }
-                        .padding()
-                    }/*
+                        .padding(24)
+                        .frame(maxWidth: .infinity)
+                        .background(
+                            // Glas-Effekt
+                            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                                .fill(.ultraThinMaterial) // Glasiger, durchscheinender Look
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                                .stroke(Color.white.opacity(0.40), lineWidth: 1)
+                        )
+                        .shadow(radius: 10)
+                        .padding(.horizontal, 24)
+
+                        Spacer()
+                    }
                     .onAppear {
                         if !didShowFinalCelebration {
                             startFinalCelebration()
                         }
-                    }*/
+                    }
 
                 } else if let challenge = nextChallenge {
                     // MARK: – Es gibt noch eine Quest
                     ScrollView {
                         ChallengeDetailView(challenge: challenge)
                             .padding(.bottom, 24)
-                        /*
-                        Button {
-                            feedbackToggle.toggle()
-                            handleChallengeCompleted(challenge)
-                        } label: {
-                            Text("Quest erledigt")
-                                .font(.headline)
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(Color("ButtonBackground"))
-                                .foregroundColor(.black)
-                                .cornerRadius(14)
-                        }
-                        .padding(.horizontal)
-                        .padding(.bottom, 8)
-                        .sensoryFeedback(
-                            .impact(flexibility: .rigid, intensity: 2.0),
-                            trigger: feedbackToggle
-                        )*/
                     }
                     Button {
                         feedbackToggle.toggle()
