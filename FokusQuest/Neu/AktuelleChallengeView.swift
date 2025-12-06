@@ -58,9 +58,14 @@ struct AktuelleChallengeView: View {
 
                             Denk daran: Ordnung im Außen hilft deinem Inneren, ruhiger und klarer zu werden. Du darfst stolz auf dich sein.
                             """)
-                                .multilineTextAlignment(.leading)
-                                .foregroundColor(.schrift2)
-                                .font(.body)
+                            .onAppear {
+                                if !didShowFinalCelebration {
+                                    startFinalCelebration()
+                                }
+                            }
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(.schrift2)
+                            .font(.body)
                         }
                         .padding(24)
                         .frame(maxWidth: .infinity)
@@ -92,6 +97,7 @@ struct AktuelleChallengeView: View {
                     }
                     Button {
                         feedbackToggle.toggle()
+                        SoundManager.shared.playSuccess()
                         handleChallengeCompleted(challenge)
                     } label: {
                         Text("Quest erledigt")
@@ -157,6 +163,7 @@ struct AktuelleChallengeView: View {
 
     private func startFinalCelebration() {
         didShowFinalCelebration = true
+        SoundManager.shared.playFinal()
 
         // 🎉 etwas „heroischer“ Start
         withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
