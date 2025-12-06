@@ -129,9 +129,20 @@ private struct UeberUnsSheet: View {
                     .font(.title2)
                     .foregroundStyle(.schrift)
                 Spacer()
-                
+                Text("Über die App:").foregroundColor(.schrift)
                 Text("Wir sind Richard B. und Fabian L. und dies ist unser erstes iOS Projekt, das wir im Rahmen des Hackathon3.0 von Kevin Chromik innerhalb von sieben Tagen entwickelt haben. Wir würden uns über dein Feedback sehr freuen.")
-                    .foregroundStyle(.schrift)
+                    .foregroundStyle(.schrift2)
+                Spacer()
+                Text("Mitwrkende:").foregroundColor(.schrift)
+                VStack{
+                    Text("Entwikler: Richard Brüse & Fabian Lackner")
+                        .foregroundColor(.schrift2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text("Sound: Felix Krahforst")
+                        .foregroundColor(.schrift2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+
                 Spacer()
                 
                 
