@@ -47,10 +47,10 @@ struct KonfettiView: UIViewRepresentable {
             baseCell.velocityRange  = 160
         case .final:
             // 🔹 Epische Final-Celebration – mehr Partikel, etwas länger, sanfteres Verblassen
-            baseCell.birthRate      = 80
-            baseCell.lifetime       = 8.0
-            baseCell.alphaSpeed     = -0.01
-            baseCell.velocity       = 90
+            baseCell.birthRate      = 50
+            baseCell.lifetime       = 1
+            baseCell.alphaSpeed     = -0.02
+            baseCell.velocity       = 180
             baseCell.velocityRange  = 180
         }
 
@@ -98,3 +98,9 @@ struct KonfettiView: UIViewRepresentable {
         // nichts zu tun
     }
 }
+
+
+#Preview {
+    AktuelleChallengeView()
+}
+

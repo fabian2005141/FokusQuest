@@ -84,22 +84,23 @@ let allChallenges: [ChallengeModel] = [
 
     ChallengeModel(
         id: 4,
-        title: "E-Mail-Inbox light",
-        area: "Digital & Kommunikation",
-        description: "Du musst nicht auf Inbox Zero kommen, aber du reduzierst heute die größten Störfaktoren.",
+        title: "Declutter Your Email Inbox",
+        area: "Digital & Communication",
+        description: "You don’t have to reach inbox zero today — but you will reduce the biggest distractions and instantly gain more clarity.",
         steps: [
-            "Öffne dein Haupt-E-Mail-Postfach.",
-            "Sortiere nach Absender oder Betreff, um ähnliche Mails zu bündeln.",
-            "Lösche Newsletter, Werbung und offensichtlichen Müll der letzten Tage/Wochen.",
-            "Lege einen Ordner „Später“ an und verschiebe Mails hinein, die du nicht sofort bearbeiten musst.",
-            "Bearbeite gezielt 5–10 wichtige Mails (antworten, weiterleiten oder archivieren)."
+            "Open your main email inbox.",
+            "Sort by sender or subject to group similar messages.",
+            "Delete newsletters, ads, and obvious clutter from the past few days/weeks.",
+            "Create a folder called “Later” and move any emails there that you don’t need to handle right away.",
+            "Process 5–10 important emails (reply, forward, or archive)."
         ],
         tips: [
-            "Stell dir einen Timer auf 30 Minuten. Danach hörst du auf, egal wie weit du bist.",
-            "Du musst heute nicht perfekt werden – Hauptsache, es wird leichter als gestern."
+            "Set a timer for 30 minutes — when it rings, you stop, no matter how far you got.",
+            "Today is about progress, not perfection. Every bit of clutter you remove is a win."
         ],
-        reason: "Eine übervolle Inbox fühlt sich an wie ein nie endender Aufgabenberg. Wenn du Werbung und offensichtlichen Ballast entfernst, bleiben nur die wirklich wichtigen Dinge übrig – das entlastet dein Gehirn enorm."
+        reason: "An overflowing inbox feels like a never-ending to-do list. When you remove unnecessary messages, only the truly important ones remain — and your mind can finally relax."
     ),
+
 
     ChallengeModel(
         id: 5,
