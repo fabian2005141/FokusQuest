@@ -18,12 +18,7 @@ struct MainMenuView: View {
                     .multilineTextAlignment(.center)
                     .foregroundColor(.schrift)
                     .padding(40)
-                
-                /*Text("Hauptmenü")
-                    .foregroundColor(.schrift2)
-                    .multilineTextAlignment(.center)
-                */
-                //Spacer()
+               
                 NavigationLink {
                     AktuelleChallengeView()
                 } label: {

@@ -24,7 +24,6 @@ struct KonfettiView: UIViewRepresentable {
         let emitter = CAEmitterLayer()
         emitter.emitterMode = .outline
 
-        // Position & Form: Punkt in der Bildschirmmitte, von dem die Partikel wegwabern
         DispatchQueue.main.async {
             let width  = view.bounds.width
             let height = view.bounds.height
@@ -34,35 +33,35 @@ struct KonfettiView: UIViewRepresentable {
             emitter.emitterSize = CGSize(width: width, height: height)
         }
 
-        // Basiszelle konfigurieren
+
         let baseCell = CAEmitterCell()
 
         switch style {
         case .normal:
-            // 🔹 Kräftiger Button-Konfetti – kurzer Burst, etwas schneller
+
             baseCell.birthRate      = 40
             baseCell.lifetime       = 6.0
             baseCell.alphaSpeed     = -0.09
             baseCell.velocity       = 120
             baseCell.velocityRange  = 160
         case .final:
-            // 🔹 Epische Final-Celebration – mehr Partikel, etwas länger, sanfteres Verblassen
-            baseCell.birthRate      = 50
+
+            baseCell.birthRate      = 80
             baseCell.lifetime       = 1
-            baseCell.alphaSpeed     = -0.02
+            baseCell.alphaSpeed     = -0.04
             baseCell.velocity       = 180
             baseCell.velocityRange  = 180
         }
 
         baseCell.scale          = (style == .final ? 0.09 : 0.06)
         baseCell.scaleRange     = 0.03
-        baseCell.emissionRange  = .pi * 2        // in alle Richtungen
+        baseCell.emissionRange  = .pi * 2
         baseCell.spin           = 2
         baseCell.spinRange      = 3
-        baseCell.yAcceleration  = 0              // keine Schwerkraft → Wabern
+        baseCell.yAcceleration  = 0
         baseCell.xAcceleration  = 0
 
-        // Weißes Kreisbild als Basis (wird dann mit Farbe multipliziert)
+       
         let size = CGSize(width: 20, height: 20)
         let renderer = UIGraphicsImageRenderer(size: size)
         let baseImage = renderer.image { ctx in
@@ -70,7 +69,7 @@ struct KonfettiView: UIViewRepresentable {
             ctx.cgContext.fillEllipse(in: CGRect(origin: .zero, size: size))
         }
 
-        // Bunte Farben, die im Darkmode gut sichtbar sind
+      
         let colors: [UIColor] = [
             .systemYellow,
             .systemGreen,
@@ -95,7 +94,7 @@ struct KonfettiView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: UIView, context: Context) {
-        // nichts zu tun
+
     }
 }
 
