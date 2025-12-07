@@ -2,14 +2,13 @@
 //  ChallengeDetailView.swift
 //  Productivity_Challenge
 //
-//  Created by Richard brüse on 03.12.25.
+//  Created by Richard brüse & Fabian Lackner am 03.12.25.
 //
 
 import SwiftUI
 
 struct ChallengeDetailView: View {
-    let challenge: ChallengeModel   // <-- diese Zeile ist wichtig!
-
+    let challenge: ChallengeModel   
     var body: some View {
         ZStack {
             Color("AppBackground")

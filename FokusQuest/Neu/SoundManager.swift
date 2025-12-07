@@ -2,7 +2,7 @@
 //  SoundManager.swift
 //  FokusQuest
 //
-//  Created by Richard brüse on 06.12.25.
+//  Created by Richard brüse & Fabian Lackner am 06.12.25.
 //
 
 import Foundation

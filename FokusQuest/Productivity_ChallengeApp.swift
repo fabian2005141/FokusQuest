@@ -2,7 +2,7 @@
 //  Productivity_ChallengeApp.swift
 //  Productivity_Challenge
 //
-//  Created by Fabian Lackner on 01.12.25.
+//  Created by Richard brüse & Fabian Lackner am 01.12.25.
 //
 import SwiftUI
 

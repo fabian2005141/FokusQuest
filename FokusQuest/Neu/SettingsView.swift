@@ -2,7 +2,7 @@
 //  SettingsView.swift
 //  Productivity_Challenge
 //
-//  Created by Richard brüse on 03.12.25.
+//  Created by Richard brüse & Fabian Lackner am 03.12.25.
 //
 import SwiftUI
 

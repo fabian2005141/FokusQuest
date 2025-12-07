@@ -2,7 +2,7 @@
 //  KonfettiView.swift
 //  Productivity_Challenge
 //
-//  Created by Richard brüse on 05.12.25.
+//  Created by Richard brüse & Fabian Lackner am 05.12.25.
 //
 
 import SwiftUI

@@ -2,7 +2,7 @@
 //  AktuelleChallengeView.swift
 //  Productivity_Challenge
 //
-//  Created by Richard brüse on 03.12.25.
+//  Created by Richard brüse & Fabian Lackner am 03.12.25.
 //
 
 import SwiftUI
@@ -14,7 +14,7 @@ struct AktuelleChallengeView: View {
     @State private var feedbackToggle = false
     @State private var didShowFinalCelebration = false
 
-    // MARK: - Fortschritt
+    
 
     private var completedIDs: Set<Int> {
         let ids = completedChallengeIDsRaw
@@ -23,12 +23,12 @@ struct AktuelleChallengeView: View {
         return Set(ids)
     }
 
-    /// Nächste offene Challenge (oder nil, wenn alle erledigt)
+    /// Nächste offene Challenge (
     private var nextChallenge: ChallengeModel? {
         allChallenges.first { !completedIDs.contains($0.id) }
     }
 
-    /// Alle Quests erledigt, wenn jede Challenge-ID in `completedIDs` steckt
+
     private var allCompleted: Bool {
         !allChallenges.isEmpty && allChallenges.allSatisfy { completedIDs.contains($0.id) }
     }
@@ -40,7 +40,7 @@ struct AktuelleChallengeView: View {
 
             VStack {
                 if allCompleted {
-                    // MARK: – Alle Quests erledigt (glasiger Kasten mittig)
+                    // MARK: – Alle Quests erledigt
                     VStack {
                         Spacer()
 
@@ -122,7 +122,8 @@ struct AktuelleChallengeView: View {
                 }
             }
 
-            // Konfetti-Overlay für normale und finale Celebration
+            // Konfetti-Overlay
+            
             if showKonfetti {
                 KonfettiView(style: allCompleted ? .final : .normal)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -148,12 +149,11 @@ struct AktuelleChallengeView: View {
     private func handleChallengeCompleted(_ challenge: ChallengeModel) {
         markCompleted(challenge)
 
-        // 🔥 Kräftiger, „snappiger“ Start
+      
         withAnimation(.spring(response: 0.3, dampingFraction: 0.5)) {
             showKonfetti = true
         }
 
-        // etwas längere Sichtbarkeit & smoother Fade
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             withAnimation(.easeOut(duration: 1.0)) {
                 showKonfetti = false
@@ -165,12 +165,12 @@ struct AktuelleChallengeView: View {
         didShowFinalCelebration = true
         SoundManager.shared.playFinal()
 
-        // 🎉 etwas „heroischer“ Start
+     
         withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
             showKonfetti = true
         }
 
-        // 🔟 10 Sekunden Celebration
+      
         DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
             withAnimation(.easeOut(duration: 2.0)) {
                 showKonfetti = false
