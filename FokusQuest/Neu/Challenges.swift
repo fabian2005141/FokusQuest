@@ -84,21 +84,21 @@ let allChallenges: [ChallengeModel] = [
 
     ChallengeModel(
         id: 4,
-        title: "Declutter Your Email Inbox",
-        area: "Digital & Communication",
-        description: "You don’t have to reach inbox zero today — but you will reduce the biggest distractions and instantly gain more clarity.",
+        title: "Entrümple dein E-Mail-Postfach",
+        area: "Digital & Kommunikation",
+        description: "Du musst heute nicht auf Inbox Zero kommen – aber du reduzierst die größten Ablenkungen und gewinnst sofort mehr Klarheit.",
         steps: [
-            "Open your main email inbox.",
-            "Sort by sender or subject to group similar messages.",
-            "Delete newsletters, ads, and obvious clutter from the past few days/weeks.",
-            "Create a folder called “Later” and move any emails there that you don’t need to handle right away.",
-            "Process 5–10 important emails (reply, forward, or archive)."
+            "Öffne dein Haupt-E-Mail-Postfach.",
+            "Sortiere nach Absender oder Betreff, um ähnliche Nachrichten zu gruppieren.",
+            "Lösche Newsletter, Werbung und offensichtlichen Ballast der letzten Tage/Wochen.",
+            "Erstelle einen Ordner namens „Später“ und verschiebe alle E-Mails dorthin, die du nicht sofort bearbeiten musst.",
+            "Bearbeite 5–10 wichtige E-Mails (beantworten, weiterleiten oder archivieren)."
         ],
         tips: [
-            "Set a timer for 30 minutes — when it rings, you stop, no matter how far you got.",
-            "Today is about progress, not perfection. Every bit of clutter you remove is a win."
+            "Stelle einen Timer auf 30 Minuten – wenn er klingelt, hörst du auf, egal wie weit du gekommen bist.",
+            "Heute geht es um Fortschritt, nicht um Perfektion. Jede gelöschte E-Mail ist ein Gewinn."
         ],
-        reason: "An overflowing inbox feels like a never-ending to-do list. When you remove unnecessary messages, only the truly important ones remain — and your mind can finally relax."
+        reason: "Ein überfülltes Postfach fühlt sich wie eine endlose To-do-Liste an. Wenn du Unnötiges entfernst, bleiben nur die wirklich wichtigen Nachrichten übrig – und dein Kopf kann endlich durchatmen."
     ),
 
 
