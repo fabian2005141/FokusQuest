@@ -1,8 +1,8 @@
 //
 //  SettingsView.swift
-//  Productivity_Challenge
+//  FokusQuest
 //
-//  Created by Richard brüse & Fabian Lackner am 03.12.25.
+//  Created by Richard Brüse & Fabian Lackner am 03.12.25.
 //
 import SwiftUI
 
@@ -109,7 +109,7 @@ private struct UeberUnsSheet: View {
                         self.isPresented.toggle()
                     } label: {
                         Image(systemName: "xmark")
-                            .foregroundStyle(.buttonBackground)
+                            .foregroundStyle(Color(.xmark))
                             .padding(8)
                             .background(
                                 Circle().fill(Color.white.opacity(0.001))

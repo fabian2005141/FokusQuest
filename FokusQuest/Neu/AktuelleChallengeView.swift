@@ -1,8 +1,8 @@
 //
 //  AktuelleChallengeView.swift
-//  Productivity_Challenge
+//  FokusQuest
 //
-//  Created by Richard brüse & Fabian Lackner am 03.12.25.
+//  Created by Richard Brüse & Fabian Lackner am 03.12.25.
 //
 
 import SwiftUI
@@ -72,7 +72,7 @@ struct AktuelleChallengeView: View {
                         .background(
                             // Glas-Effekt
                             RoundedRectangle(cornerRadius: 24, style: .continuous)
-                                .fill(.ultraThinMaterial) // Glasiger, durchscheinender Look
+                                .fill(.ultraThinMaterial) 
                         )
                         .overlay(
                             RoundedRectangle(cornerRadius: 24, style: .continuous)

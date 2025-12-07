@@ -1,8 +1,8 @@
 //
 //  ProgressHelpers.swift
-//  Productivity_Challenge
+//  FokusQuest
 //
-//  Created by Richard brüse & Fabian Lackner am 03.12.25.
+//  Created by Richard Brüse & Fabian Lackner am 03.12.25.
 //
 
 import Foundation
